@@ -1,16 +1,32 @@
+import {useState} from 'react';
 import Button from './Button';
 import Dice from './Dice';
 
+
+
+
 function App() {
+
+  function random(n) {
+    return Math.ceil(Math.random() * n)
+  };
+
+  const [num, changeNum] = useState(1);
+
+  const handleRollClick = () => {
+    const nextNum = random(6)
+    changeNum(nextNum)
+  }  
+
   return (
     <div>
-      <Dice color="red" num={2} />
-      <Dice color="blue" num={6} />
-
       <div>
-        <Button>던지기</Button>
+        <Button onClick={handleRollClick}>던지기</Button>
         <Button>처음부터</Button>
       </div>
+      
+      <Dice color="red" num={num} />
+      <Dice color="blue" num={num} />
     </div>
   );
 }
