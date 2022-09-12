@@ -8,9 +8,9 @@ const handIconImg = {
   paper: paperImg
 };
 
-const HandIcon = (props) => {
-  const src = handIconImg[props.value]
-  return <img src={src} alt={props.value} />;
+const HandIcon = ({ value }) => {
+  const src = handIconImg[value]
+  return <img src={src} alt={value} />;
 }
 
 export default HandIcon;
