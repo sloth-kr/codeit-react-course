@@ -2,7 +2,7 @@ import Button from './Button';
 import HandButton from './HandButton';
 import HandIcon from './HandIcon';
 import { compareHand, generateRandomHand } from './utils';
-import { useState } from 'react';
+import { useState } from 'react'
 
 function getResult(me, other) {
   const comparison = compareHand(me, other);
@@ -13,24 +13,20 @@ function getResult(me, other) {
 
 function App() {
   // hand와 otherHand를 state로 바꾸어 주세요
-
   const [hand, setHand] = useState('rock');
-  const [otherHand, setOtherHand] = useState('rock');
+  const [otherHand, setOtherHand] = useState('scissor');
 
   const handleButtonClick = (nextHand) => {
-    setHand(nextHand);
-    
-    const nextOtherHand = generateRandomHand()
-    setOtherHand(nextOtherHand)
-    
     // hand의 값을 nextHand 로 바꿔주세요
     // otherHand의 값을 generateRandomHand()의 리턴 값으로 바꿔주세요
+    setHand(nextHand);
+    setOtherHand(generateRandomHand());
   };
 
   const handleClearClick = () => {
+    // hand와 otherHand의 값을 'rock' 으로 변경해주세요
     setHand('rock');
     setOtherHand('rock');
-    // hand와 otherHand의 값을 'rock' 으로 변경해주세요
   };
 
   return (
